@@ -1,10 +1,14 @@
 /*
- * This ESP8266 NodeMCU code was developed by newbiely.com
- *
- * This ESP8266 NodeMCU code is made available for public use without any restriction
- *
- * For comprehensive instructions and wiring diagrams, please visit:
- * https://newbiely.com/tutorials/esp8266/esp8266-websocket
+ Composition: ESP-01S, ADS1115 (cause meilleure résolution, et utilisation bus I2C), et 4 panneaux solaires de lampes de jardin vendus en grande surface
+ Les 4 panneaux sont orientés à 20° les uns des autres en horizontale et verticale locales.
+ Un écart de puissance délivrée par chaque panneau montre une orientation perfectible des panneaux solaires, le but étant d'être le plus en face du soleil.
+ La moyenne de production des 4 petits panneaux permet d'estimer la cpaacité de puissance des gros panneaux.
+ Mais pourquoi?
+ Les gros panneaux alimentent la maison, pour utilisation sans revente.
+ L'eau-chaude est produite par une chaudière à granulés, mais si la puissance produite par l'installation photovoltaïque, une résistance chauffera l'eau.
+ Derrière tout ça, l'info sera récupérée par la domotique en place (protocole mqtt, et serveur home assistant).
+
+ Une partie html lue par un client qui s'y connecte directement verra les infos sur une page html, avec script javascript et mise en page css (voir autres fichiers du projet).
  */
 
 #include <ESP8266WiFi.h>
@@ -21,10 +25,8 @@
 //ADS1115 en 5V
 // Gain 1: +- 4.096V, 32767
 
-const char* ssid = "Livebox-5130";
-const char* password = "gAj2t2jbzKe939ejpg";
-//const char* ssid = "XavierA14";
-//const char* password = "M3lchaben!";
+const char* ssid = "SSID";
+const char* password = "password";
 
 //partie rajoutée pour serveur d'essai
 int val_h=0;
